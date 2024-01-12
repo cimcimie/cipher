@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="animate">Caesar Cipher</h1>
+        <h2 class="animate">Encryption / Decryption Tool</h2>
+        <form method="post" action="proses.php" class="animate">
+            <label for="text">Enter Text</label>
+            <input type="text" id="text" name="text" required>
+            <label for="shift">Shift</label>
+            <input type="number" id="shift" name="shift" required>
+            <label for="action">Encrypt / Decrypt</label>
+            <select id="action" name="action">
+                <option value="encrypt">Encrypt</option>
+                <option value="decrypt">Decrypt</option>
+            </select>
+            <input type="submit" name="submit" value="Submit" onclick="tampilkanKonfirmasi()">
+        </form>
+    </div>
+    <div id="jam" class="animate"></div>
+    <script>
+        function perbaruiJam() {
+            const elemenJam = document.getElementById("jam");
+            const sekarang = new Date();
+            const jam = sekarang.getHours().toString().padStart(2, '0');
+            const menit = sekarang.getMinutes().toString().padStart(2, '0');
+            const detik = sekarang.getSeconds().toString().padStart(2, '0');
+            const waktu = `${jam}:${menit}:${detik}`;
+            elemenJam.textContent = waktu; 
+        }
+        setInterval(perbaruiJam, 1000);   
+        window.onload = perbaruiJam;
+
+        function tampilkanKonfirmasi() {
+            var konfirmasi = confirm("Apakah Anda yakin?");
+            if (konfirmasi === true) {} else {}
+        }
+    </script>
+</body>
+</html>
